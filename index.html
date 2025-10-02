@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Melis Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Melis Konez, a UX/UI & Product Designer with a background in digital media and industrial design. Specializing in design systems, interactive prototypes, and motion-driven user experiences using Figma, Three.js, and GSAP. Based in Ireland."
+    />
+    <!-- NAVIGATION  -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- External CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ed552a7faf.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS-STYLE -->
+    <!--  <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="canvas.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="stylesheet" href="/style/designstyle.css" />
+    <link rel="stylesheet" href="/style/about.css" />
+    <link
+      rel="stylesheet"
+      href="../style/ipad.css"
+      media="screen and (min-width: 744px) and (max-width: 1023px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./style/phone.css"
+      media="screen and (max-width: 744px)"
+    />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <header class="site-header" data-nav>
+      <div class="nav-wrap">
+        <a class="brand" href="/index.html" aria-label="Home">
+          <img style="height: 28px" src="/favicon-32x32.png" alt="" />
+        </a>
+
+        <!-- Mobile toggle -->
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <nav class="nav" id="site-menu" aria-label="Primary">
+          <ul class="nav__list">
+            <!-- add .is-active to the current page -->
+            <li><a class="nav__link is-active" href="/">Home</a></li>
+            <li><a class="nav__link" href="#mywork">Case Studies</a></li>
+            <!--  <li><a class="nav__link" href="/experiments">Experiments</a></li> -->
+            <li><a class="nav__link" href="#about">About</a></li>
+            <!--      <li><a class="nav__link" href="/contact">Contact</a></li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- --- Hero --- -->
+
+    <section id="home" class="info-section">
+      <div class="hero">
+        <div class="container" style="height: 100vh; display: grid">
+          <div class="row align-items-center">
+            <div class="">
+              <div class="header-sub-text">
+                <h1>Hi, I'm <strong>Melis.</strong></h1>
+                <h3>— UX/UI & Product Designer.</h3>
+                <p class="subhead">
+                  I design interactive, user-centered digital experiences that
+                  blend UX research, UI craft, and emerging technologies.
+                </p>
+
+                <!-- Primary CTA (only the featured card uses a loud button) -->
+                <div class="cta-row">
+                  <a
+                    class="cta-btn"
+                    href="#mywork"
+                    style="margin-right: 24px"
+                    data-toggle-cube
+                  >
+                    <span>View My Work </span>
+                  </a>
+                  <a
+                    class="cta-btn cta--secondary"
+                    href="https://www.linkedin.com/in/meliskonez/"
+                    data-toggle-cube
+                  >
+                    <span>Get in Touch</span
+                    ><span class="arrow"
+                      ><i class="fa-solid fa-arrow-right"></i
+                    ></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="hero-home"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <canvas id="hero"></canvas>
+
+    <!-- <script src="landingPage.js"></script> -->
+
+    <section class="container">
+      <div class="grid">
+        <h3 class="span-12" id="mywork">My Work</h3>
+        <!-- Featured / big card -->
+        <article class="project-feature span-12" aria-labelledby="rax-title">
+          <!-- RIGHT: media -->
+          <div class="project-feature__media">
+            <a href="./UX-UI Cases/tennisRacketProject.html">
+              <picture>
+                <img src="assets/homeAssets/tennis-racket-giff.gif" alt="" />
+                <!-- Optional modern formats -->
+              </picture></a
+            >
+          </div>
+
+          <!-- LEFT: content -->
+          <div class="project-feature__content">
+            <div class="kicker">Featured Case Study</div>
+            <h3 id="rax-title" class="title">
+              RAX Velocity X1 — Interactive Launch
+            </h3>
+            <p class="strap">
+              Hands-on product story in the browser: Tech-View toggle, specs &
+              materials tabs, and scroll camera choreography.
+            </p>
+            <!-- Tags -->
+            <div class="tags">
+              <span
+                class="tag sep sep--decision"
+                aria-label="UX and UI, Interaction"
+              >
+                UX/UI<span class="sep sep--decision">&nbsp;·&nbsp;</span
+                >Interaction
+              </span>
+
+              <span class="tag sep sep--evidence" aria-label="GSAP and Motion">
+                GSAP<span class="sep sep--evidence">&nbsp;·&nbsp;</span>Motion
+              </span>
+
+              <span
+                class="tag sep sep--evidence"
+                aria-label="WebGL and Three.js"
+              >
+                WebGL<span class="sep sep--evidence">&nbsp;/&nbsp;</span
+                >Three.js
+              </span>
+            </div>
+
+            <!-- Primary CTA (only the featured card uses a loud button) -->
+            <div class="cta-row">
+              <a
+                class="cta-btn cta--secondary"
+                href="/UX-UI Cases/tennisRacketProject.html"
+                >Case Study
+                <span class="arrow"
+                  ><i class="fa-solid fa-arrow-right"></i></span
+              ></a>
+              <a
+                class="cta-btn cta--accent-teal"
+                href="https://luminous-khapse-a5b6ad.netlify.app/"
+                target="_blank"
+                rel="noopener"
+              >
+                Demo
+                <span class="arrow">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i
+                ></span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- Featured (half) — span-6 -->
+        <article
+          class="project-feature project-feature--half span-6 md-span-8 sm-span-4"
+          aria-labelledby="rax-title"
+        >
+          <!-- RIGHT/Top: media -->
+          <div class="project-feature__media">
+            <a href="./UX-UI Cases/majorProject.html">
+              <picture>
+                <img
+                  src="assets/homeAssets/240814_HeroSection_00.png"
+                  alt="RAX Velocity X1 3D microsite on devices"
+                /> </picture
+            ></a>
+          </div>
+
+          <!-- LEFT/Bottom: content (same structure/styles as full width) -->
+          <div class="project-feature__content">
+            <div class="kicker">Student Equipment Lending Platform</div>
+            <h3 id="rax-title" class="title">Media Equip</h3>
+            <p class="strap">
+              Mobile-first SaaS to browse gear, build kits, and reserve dates
+              with clear pickup/return steps.
+            </p>
+            <div class="tags">
+              <span
+                class="tag sep sep--decision"
+                aria-label="Product Design and UX UI"
+              >
+                Product&nbsp;Design<span class="sep sep--decision">&nbsp;</span>
+              </span>
+              <span
+                class="tag sep sep--decision"
+                aria-label="Product Design and UX UI"
+              >
+                UX/UI<span class="sep sep--decision">&nbsp;</span>
+              </span>
+              <span
+                class="tag sep sep--decision"
+                aria-label="Product Design and UX UI"
+              >
+                Usability Testing<span class="sep sep--decision">&nbsp;</span>
+              </span>
+              <span
+                class="tag sep sep--evidence"
+                aria-label="Mobile and Responsive"
+              >
+                Mobile Application<span class="sep sep--evidence">&nbsp;</span>
+              </span>
+              <span
+                class="tag sep sep--evidence"
+                aria-label="Mobile and Responsive"
+              >
+                Information Architecture<span class="sep sep--evidence"
+                  >&nbsp;</span
+                >
+              </span>
+              <span
+                class="tag sep sep--evidence"
+                aria-label="Mobile and Responsive"
+              >
+                Data Model<span class="sep sep--evidence">&nbsp;</span>
+              </span>
+            </div>
+            <!-- CTAs -->
+            <div class="cta-row">
+              <a
+                class="cta-btn cta--secondary"
+                href="UX-UI Cases/majorProject.html"
+                >Case Study <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </article>
+        <!-- Featured (half) — span-6 -->
+        <article
+          class="project-feature project-feature--half span-6 md-span-8 sm-span-4"
+          aria-labelledby="rax-title"
+        >
+          <!-- RIGHT/Top: media -->
+          <div class="project-feature__media">
+            <a href="./UX-UI Cases/hastacProject.html">
+              <picture>
+                <img
+                  src="./assets/homeAssets/240814_HastacThump_00.png"
+                  alt="RAX Velocity X1 3D microsite on devices"
+                /> </picture
+            ></a>
+          </div>
+
+          <!-- LEFT/Bottom: content (same structure/styles as full width) -->
+          <div class="project-feature__content">
+            <div class="kicker">Website Design</div>
+            <h3 id="rax-title" class="title">Hastac Machine</h3>
+            <p class="strap">
+              Redesign the Hastaç Makine website, emphasizing the company's
+              craftsmanship and experience.
+            </p>
+            <div class="tags">
+              <span
+                class="tag sep sep--decision"
+                aria-label="Product Design and UX UI"
+              >
+                Web Design<span class="sep sep--decision">&nbsp;</span>
+              </span>
+            </div>
+            <!-- CTAs -->
+            <div class="cta-row">
+              <a
+                class="cta-btn cta--secondary"
+                href="/UX-UI Cases/hastacProject.html"
+              >
+                Case Study <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <h1 class="">
+        <strong> Where UX Design Meets Code & Motion.</strong>
+      </h1>
+      <div class="grid">
+        <!-- LEFT -->
+        <div class="span-6">
+          <p class="">
+            I thrive in the space where creativity meets systems thinking: from
+            building design systems that scale, to crafting interactive
+            prototypes that feel like finished products. My work is driven by a
+            belief that good design should not only look great, but also work
+            seamlessly in code, scale across platforms, and tell a story through
+            motion.
+            <br />
+          </p>
+
+          <div class="about__cta">
+            <a
+              class="cta-btn"
+              href="https://drive.google.com/file/d/1PpnsV6lSBw7sAbLubMmgvhAdedvPOUY1/view?usp=sharing"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open my resume PDF in a new tab"
+            >
+              <span>Resume</span></a
+            >
+
+            <!--   <a class="cta-btn cta--secondary" href="/MelisKonez_Resume.pdf"
+              >Resume</a -->
+          </div>
+        </div>
+        <div class="span-6">
+          <figure class="about__card" aria-label="About scene">
+            <div
+              id="aboutScene"
+              class="scene"
+              role="img"
+              aria-label="Avatar with background"
+            ></div>
+          </figure>
+          <div class="scene-controls">
+            <button id="prevBtn" class="ctrl-btn" aria-label="Previous">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 18l-6-6 6-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div class="ctrl-center">
+              <span id="traitText" class="trait-label">cats</span>
+              <div class="trait-dots" id="traitDots"></div>
+            </div>
+
+            <button id="nextBtn" class="ctrl-btn" aria-label="Next">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path
+                  d="M9 6l6 6-6 6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== FOOTER (grid-9) ==== -->
+    <footer class="site-footer">
+      <div class="grid-9 footer-grid">
+        <!-- left -->
+        <div class="span-5 footer-meta">
+          <p>© 2025 · Designed & Developed by <strong>Melis Konez</strong></p>
+          <p class="footer-tag">
+            Crafting digital experiences with design & code
+          </p>
+        </div>
+
+        <!-- right -->
+        <nav class="span-4 footer-actions" aria-label="Footer links">
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:meliskonez@gmail.com" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i><span>Email</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/meliskonez/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/audralix/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i><span>GitHub</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.behance.net/meliskonez"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Behance"
+              >
+                <i class="fa-brands fa-behance"></i><span>Behance</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/audrainshift/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram (audraishift)"
+              >
+                <i class="fa-brands fa-instagram"></i><span>Instagram</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <!--   Updated -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js",
+          "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.160/examples/jsm/"
+        }
+      }
+    </script>
+    <!-- GSAP + Three from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script type="module" src="homeThree.js"></script>
+    <script src="/js/designsytem.js"></script>
+    <script src="/js/about.js"></script>
+  </body>
+</html>

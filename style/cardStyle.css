@@ -1,0 +1,159 @@
+.competitor-analysis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*   height: 100vh;
+ */
+  overflow: hidden;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 2rem;
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+/* Hide the scrollbar for modern browsers */
+.scroll-container::-webkit-scrollbar {
+  display: none; /* For WebKit browsers (Chrome, Safari) */
+}
+
+.card {
+  flex: 0 0 500px;
+  max-width: 400px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.card-sorting-card {
+  max-width: 145px;
+}
+
+.card:hover {
+  transform: scale(1.2);
+}
+
+.card-image {
+  /* height: 150px; */
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-content {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+}
+
+p {
+  margin: 0.25rem 0;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto !important; /* Override global rule */
+  height: auto; /* Maintain aspect ratio */
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add some shadow for styling */
+  padding: 1rem; /* Adds a gap around the image */
+}
+
+.modal-content img.modal-image {
+  display: block; /* Ensures it behaves like a block-level element */
+  margin: 0 auto; /* Center the image within the modal */
+  max-width: 100%; /* Prevent the image from exceeding the modal width */
+  max-height: 90vh; /* Prevent the image from exceeding 90% of the viewport height */
+  width: auto; /* Maintain natural width unless limited by max-width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image is fully visible without cropping */
+  border: 1px solid #ddd; /* Optional: Styling */
+  border-radius: 5px; /* Optional: Rounded corners */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.close-button:hover {
+  background: #ddd;
+}
+
+/* Show Modal */
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .scroll-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto new rows */
+    justify-content: center; /* Center items in the container */
+    gap: 1rem; /* Maintain spacing between cards */
+    padding: 1rem;
+    overflow-x: visible; /* Disable horizontal scrolling */
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 1rem); /* Each card takes 50% width, minus gap */
+    max-width: calc(
+      50% - 1rem
+    ); /* Ensures cards don't exceed 50% of container width */
+    box-sizing: border-box; /* Includes padding and border in width calculation */
+  }
+
+  .card-image {
+    width: 100%; /* Ensure the image stretches to fill the card */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

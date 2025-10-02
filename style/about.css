@@ -1,0 +1,306 @@
+/* —— section layout ———————————————————— */
+.about {
+  align-items: start;
+  row-gap: 24px;
+}
+.about__left {
+  padding-top: 6px;
+} /* start text a bit higher */
+
+.about__strap {
+  margin: 0 0 16px;
+  max-width: 60ch;
+  color: #222;
+}
+
+.about__bullets {
+  margin: 0 0 20px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+.about__bullets li {
+  margin: 2px 0;
+  color: #222;
+}
+
+/* buttons (match your DS; tweak tokens to taste) */
+:root {
+  --brand: #a80600;
+  --text: #111;
+  --card-br: #e9e9e9;
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  --r: 20px;
+}
+.about__cta {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn--ghost {
+  background: #fff;
+  color: var(--text);
+  border: 2px solid #dcdcdc;
+}
+
+.about__card {
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-radius: 28px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  margin: 0;
+  align-self: start;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+
+  overflow: hidden;
+  background: #f7f8fa;
+  width: 100%;
+  aspect-ratio: 4/3;
+  min-height: 320px;
+}
+.scene::before {
+  content: "";
+  display: block;
+  padding-top: 0;
+} /* keep */
+.scene-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.99);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  object-position: center bottom; /* <-- key line */
+}
+.scene-layer.is-on {
+  opacity: 1;
+  transform: scale(1);
+}
+/* ensure base (Asset 1) sits above background */
+.scene-layer.bg {
+  z-index: 1;
+  --bg-scale: 1;
+}
+.scene-layer.base {
+  z-index: 5;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  max-width: 170px; /* never larger */
+
+  width: 30vw; /* scale a bit with viewport */
+
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.scene-switch {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 0 16px;
+}
+.scene-switch button {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+.scene-switch button:hover {
+  border-color: #a80600;
+}
+
+.scene-layer.bg {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* overlays float on top of base asset */
+.overlay {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.overlay.is-on {
+  opacity: 1;
+}
+
+/* Each asset can get its own positioning */
+.overlay.cat-face {
+  left: -20%;
+  bottom: -15%;
+  width: 40%;
+  z-index: 10;
+}
+
+.overlay.cat-right {
+  right: -10%;
+  bottom: -10%;
+  width: 30%;
+}
+
+/* NEW: coffee (Asset 22), centered in front of Asset 1 */
+.overlay.coffee {
+  left: 70%;
+  bottom: 0%;
+  width: 22%;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+/* Camera / Hand (Asset 14) */
+.overlay.asset14 {
+  left: 45%;
+  bottom: 0%;
+  width: 24%;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+/* Headphones (Asset 15) */
+.overlay.asset15 {
+  left: 50%;
+  top: 26%;
+  width: 28%;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+.trait-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.trait-nav button {
+  all: unset;
+  background: #a80600;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#traitText {
+  min-width: 200px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.trait-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.trait-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.trait-dot.active {
+  background: #a80600; /* your brand red */
+  transform: scale(1.2);
+}
+
+/* Card footer controls */
+.scene-controls {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0 20px 18px;
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+
+.ctrl-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1.5px solid #e6e6e6;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.ctrl-btn:hover {
+  border-color: #a80600;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+.ctrl-btn:active {
+  transform: none;
+  box-shadow: none;
+}
+
+.ctrl-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.trait-label {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* dots */
+.trait-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.trait-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d5d5d5;
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+.trait-dot.active {
+  background: #a80600;
+  transform: scale(1.3);
+}
+
+/* small screens: tuck everything tighter */
+@media (max-width: 520px) {
+  .scene-controls {
+    grid-template-columns: 40px 1fr 40px;
+    padding: 8px 10px;
+  }
+  .ctrl-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .trait-label {
+    font-size: 0.95rem;
+  }
+}
