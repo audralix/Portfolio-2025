@@ -146,10 +146,10 @@ li {
 ================================ */
 .card {
   background: var(--surface);
-  border: 1.5px solid var(--border);
+  /*   border: 1.5px solid var(--border); */
   border-radius: var(--radius-16);
   padding: 24px;
-  box-shadow: var(--shadow-sm);
+  /*  box-shadow: var(--shadow-sm); */
   margin-bottom: 20px;
 }
 
@@ -591,4 +591,558 @@ li {
   display: block;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+/* The visible frame */
+.portal-screen {
+  --frame-h: 600px; /* change this if you want another height */
+  height: var(--frame-h);
+  max-width: 540px; /* optional, just to control width */
+
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0; /* ← your border */
+}
+
+/* The scrolling content */
+.portal-screen__inner {
+  animation: scrollScreen 18s linear infinite alternate;
+}
+
+/* Image just fills horizontally */
+.portal-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Vertical scroll effect */
+@keyframes scrollScreen {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    /* move image up so bottom is visible inside 600px frame */
+    transform: translateY(calc(-100% + var(--frame-h)));
+  }
+}
+
+/* Container */
+.phase-carousel {
+  position: relative;
+  max-width: 1000px;
+}
+
+/* Header row */
+.phases-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+/* .phases-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+} */
+
+/* Nav buttons on the right */
+.phases-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.phases-nav button {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.phases-nav button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  gap: 8px; /* images stay connected */
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  flex: 0 0 auto; /* width set by JS */
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: auto; /* keep aspect ratio */
+}
+
+/* Notes under image */
+.notes {
+  margin-top: 8px;
+  display: grid;
+  gap: 8px;
+
+  /* LIMIT */
+  max-width: 360px; /* change this */
+  width: 100%;
+}
+
+.note {
+  padding: 10px;
+  border-radius: 8px;
+
+  width: auto; /* important: don't force 100% */
+  max-width: 100%;
+}
+
+.note h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.note p {
+  margin: 0;
+  font-size: 16px;
+
+  overflow-wrap: anywhere; /* breaks very long words/URLs */
+  word-break: normal;
+  max-width: 60ch; /* nice reading width */
+}
+
+/* Colors like your reference */
+.note--data {
+  background: #f6e8a8;
+}
+.note--assumption {
+  background: #f7d6d6;
+}
+
+/* --- POV table card (matches your screenshot style) --- */
+.pov-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-16);
+  overflow: hidden; /* keeps rounded corners on row borders */
+  margin-bottom: 20px;
+}
+
+/* each table row */
+.pov-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 20px;
+  padding: 16px 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.pov-row:first-child {
+  border-top: 0;
+}
+
+/* left label column */
+.pov-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #616161; /* muted */
+  padding-top: 2px;
+  font-family: "Roboto", sans-serif;
+}
+
+.pov-content p {
+  margin-bottom: 0px;
+}
+
+/* underline highlight like in your screenshot */
+.hl {
+  box-shadow: inset 0 -0.45em 0 rgba(168, 6, 0, 0.18); /* subtle red highlight */
+  padding: 0 0.1em;
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .pov-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .pov-content {
+    font-size: 16px;
+  }
+}
+
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* ✅ exact gap */
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+.persona-card {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px; /* optional */
+}
+
+@media (max-width: 768px) {
+  .persona-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Card wrapper ===== */
+.hmw-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 1rem;
+}
+
+/* ===== Top header (avatar + name) ===== */
+.hmw-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 6px 14px;
+}
+
+.hmw-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+}
+
+.hmw-title h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.hmw-title p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ===== Table layout (2 panels) ===== */
+.hmw-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* left group wider */
+  gap: 16px;
+}
+
+.hmw-panel {
+  border-radius: 16px;
+  background: #f5f6f7;
+  padding: 16px;
+}
+
+/* ===== Heads (column headers) ===== */
+.hmw-head {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 18px;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.hmw-head--right {
+  grid-template-columns: 1fr;
+}
+
+/* ===== Rows (same height across panels) ===== */
+.hmw-body {
+  display: grid;
+  gap: 0;
+}
+
+/* each row uses min-height to keep alignment nice */
+.hmw-row {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  min-height: 86px; /* ensures consistent row height */
+}
+
+.hmw-row:last-child {
+  border-bottom: 0;
+}
+
+.hmw-row--single {
+  grid-template-columns: 1fr;
+}
+
+/* cells */
+.hmw-cell {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.hmwd {
+  border-left: 1px solid #e6eaf0;
+  padding-left: 12px; /* adjust spacing as needed */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hmw-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hmw-head {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hmw-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    min-height: unset;
+  }
+}
+
+.journey {
+  max-width: 1400px;
+}
+
+.journey-header {
+  max-width: 720px;
+  margin-bottom: 64px;
+}
+
+.journey-header h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.journey-header p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* GRID */
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+}
+
+/* STEP */
+.journey-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journey-step h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* DOT */
+.journey-line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: #c7c7c7;
+  margin: 0px 4px 16px 0px;
+}
+
+.journey-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #c7c7c7;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* IMAGES */
+.journey-step img {
+  width: 100%;
+  max-width: 220px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  margin-bottom: 20px;
+}
+
+/* SPACING */
+/* ===== Page title (H1) ===== */
+.cs-h1 {
+  margin: 0 0 24px 0;
+  line-height: 1.15;
+}
+
+/* ===== Major sections (H2 blocks) ===== */
+.cs-section {
+  margin-bottom: 64px; /* space between H2 sections */
+}
+
+.cs-h2 {
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.cs-lead {
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.cs-section p {
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+.cs-visual {
+  margin-top: 28px;
+}
+
+/* Paragraph that follows a visual */
+.cs-visual + p {
+  margin-top: 24px;
+}
+
+.cs-visual + .card {
+  margin-top: 24px;
+}
+
+/* List immediately after a visual */
+.cs-visual + .steps {
+  margin-top: 16px;
+}
+
+/* ===== Subsections (H3) inside an H2 section ===== */
+.cs-subsection {
+  margin-top: 44px; /* separation from previous block */
+}
+
+.cs-h3 {
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+}
+
+.cs-subsection p {
+  margin: 0 0 20px 0;
+}
+
+/* component image + notes */
+.cs-component {
+  margin-top: 20px;
+}
+
+.cs-notes {
+  margin-top: 14px;
+  padding-left: 18px;
+}
+
+.cs-notes li + li {
+  margin-top: 10px;
+}
+
+/* Used for your "Refining the..." headings */
+.cs-h4 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cs-figure {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.cs-label {
+  margin-bottom: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.certifications__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.cert-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cert-item__frame {
+  width: 100%;
+  max-width: 420px; /* tweak if needed */
+  height: 240px; /* KEY: equal visual height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-item__frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* prevents cropping */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  display: block;
+}
+
+.cert-item__label {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.certifications__thanks {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .certifications__grid {
+    grid-template-columns: 1fr;
+  }
+  .cert-item__frame {
+    height: 220px;
+  }
 }
