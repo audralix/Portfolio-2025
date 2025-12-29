@@ -82,6 +82,12 @@ h2 {
   font-weight: 700px;
 }
 
+.subtitle{
+    font-weight: 400;
+  font-size: 22px;
+  color: var(--color-primary); /* your portfolio red */
+}
+
 a{
   text-decoration: none !important;
 }
@@ -1252,4 +1258,9 @@ font-weight: 700px;
   height: auto;
   display: block;
 }
+
+
+
+
+
 
