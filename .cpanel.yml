@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/melisk6/public_html/
-    - /bin/cp -R * $DEPLOYPATH
+    - export DEPLOYPATH="/home/melisk6/public_html/UX-UI Cases/"
+    - /usr/bin/rsync -a --delete --exclude ".git" --exclude ".cpanel.yml" ./ "$DEPLOYPATH"
